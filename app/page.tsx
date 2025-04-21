@@ -1,36 +1,33 @@
-"use client"
-import PostCard from './component/post-card/PostCard'
-import {useEffect, useState} from "react";
+import PostCard from './component/PostCard/PostCard'
 
-export default function Home() {
-
-  const [jobs, setJobs] = useState([]);
-
-  const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const selectedValue = event.target.value;
-    console.log(`Selected sort option: ${selectedValue}`);
+interface JobPosting {
+  title: string;
+  description: string;
+  company: string;
+  image: string;
+  about: {
+    posted_on: string;
+    deadline: string;
+    location: string;
+    start_date: string;
+    end_date: string;
+    categories: string[];
+    required_skills: string[]; 
   }
+}
+export default async function Home() {
 
-  useEffect(() => {
-    const fetchJobs = async () => {
-      try {
-        const response = await fetch('/jobs.json'); // Notice the leading slash
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        const jobs = data.job_postings;
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+
+  let jobPostings: JobPosting[] = [];
+
+  const response = await fetch(`${baseUrl}/jobs.json`);
+
+  const data = await response.json();
+  jobPostings = data.job_postings;
 
 
-        console.log('Fetched jobs:', data);
-        setJobs(jobs);
-      } catch (error) {
-        console.error('Error fetching jobs:', error);
-      }
-    };
-
-    fetchJobs();
-  }, []);
+  console.log('Fetched jobs:', data);
 
   return (
     <div className="container">
@@ -55,8 +52,8 @@ export default function Home() {
         </div>
       </div>
       <div className="mt-6 px-5">
-        {jobs.map((job: any, index: number) => (
-          <PostCard key={index} jobPost={job} />
+        {jobPostings.map((jobPosting: JobPosting, index: number) => (
+          <PostCard key={index} jobPosting={jobPosting}/>
         ))}
       </div>
     </div>
