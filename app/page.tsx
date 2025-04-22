@@ -1,33 +1,9 @@
 import PostCard from './component/PostCard/PostCard'
+import { fetchJobs, JobPosting } from './services/jobsService'
 
-interface JobPosting {
-  title: string;
-  description: string;
-  company: string;
-  image: string;
-  about: {
-    posted_on: string;
-    deadline: string;
-    location: string;
-    start_date: string;
-    end_date: string;
-    categories: string[];
-    required_skills: string[]; 
-  }
-}
 export default async function Home() {
-
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
-
-  let jobPostings: JobPosting[] = [];
-
-  const response = await fetch(`${baseUrl}/jobs.json`);
-
-  const data = await response.json();
-  jobPostings = data.job_postings;
-
-
-  console.log('Fetched jobs:', data);
+  const jobPostings: JobPosting[] = await fetchJobs();
+  console.log("jobPostings****", jobPostings);
 
   return (
     <div className="container">
@@ -52,8 +28,8 @@ export default async function Home() {
         </div>
       </div>
       <div className="mt-6 px-5">
-        {jobPostings.map((jobPosting: JobPosting, index: number) => (
-          <PostCard key={index} jobPosting={jobPosting}/>
+        {jobPostings.map((jobPosting: JobPosting) => (
+          <PostCard key={jobPosting.id} jobPosting={jobPosting}/>
         ))}
       </div>
     </div>

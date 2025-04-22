@@ -1,0 +1,42 @@
+.tag-button {
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    min-width: 60px;
+    white-space: nowrap;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 19px;
+    transition: all 0.2s ease;
+
+    &--location {
+        background: #56CDAD1A;
+        color: #56CDAD;
+        border: none;
+    }
+
+    &--category-1 {
+        background: #ffba361a;
+        border: 1px solid #ffba36;
+        color: #FFB836;
+    }
+
+    &--category-2 {
+        background: #fff;
+        border: 1px solid #4640DE;
+        color: #4640DE;
+    }
+
+    
+
+    @media screen and (max-width: 480px) {
+        padding: 8px 15px;
+        font-size: 12px;
+        max-width: 120px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+.no-border {
+    border: none !important;
+} 

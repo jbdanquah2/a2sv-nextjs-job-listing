@@ -1,0 +1,174 @@
+// Variables
+$primary-color: #2D2D69;
+$secondary-color: #666;
+$border-color: #eee;
+$tag-bg-marketing: #FFF4E5;
+$tag-color-marketing: #FF9B05;
+$tag-bg-design: #E5F5F0;
+$tag-color-design: #0BAB7C;
+
+// Mixins
+@mixin card-shadow {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+}
+
+.post-details {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  &__content {
+    section {
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      background: white;
+      border-radius: 8px;
+      @include card-shadow;
+
+      h2 {
+        color: $primary-color;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      p {
+        color: $secondary-color;
+        line-height: 1.6;
+      }
+    }
+  }
+
+  &__responsibilities {
+    ul {
+      list-style: none;
+      padding: 0;
+
+      li {
+        @include flex-center;
+        margin-bottom: 0.8rem;
+        color: $secondary-color;
+
+        .check-icon {
+          color: #0BAB7C;
+          margin-right: 0.8rem;
+        }
+      }
+    }
+  }
+
+  &__ideal-candidate {
+    ul {
+      list-style: none;
+      padding: 0;
+
+      li {
+        margin-bottom: 1rem;
+        color: $secondary-color;
+        line-height: 1.6;
+      }
+    }
+  }
+
+  &__when-where {
+    .location-info {
+      @include flex-center;
+      gap: 0.8rem;
+
+      .location-icon {
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+  &__sidebar {
+    .about-section, .categories-section, .skills-section {
+      background: white;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      @include card-shadow;
+
+      h2 {
+        color: $primary-color;
+        font-size: 1.25rem;
+        margin-bottom: 1.2rem;
+      }
+    }
+
+    .info-item {
+      @include flex-center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      padding: 0.8rem 0;
+      border-bottom: 1px solid $border-color;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .icon {
+        font-size: 1.2rem;
+      }
+
+      h3 {
+        font-size: 0.9rem;
+        color: $secondary-color;
+        margin-bottom: 0.2rem;
+      }
+
+      p {
+        color: $primary-color;
+        font-weight: 500;
+      }
+    }
+
+    .categories-list, .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+
+      .category-tag, .skill-tag {
+        padding: 0.4rem 0.8rem;
+        border-radius: 4px;
+        font-size: 0.9rem;
+      }
+
+      .category-tag {
+        &:nth-child(odd) {
+          background: $tag-bg-marketing;
+          color: $tag-color-marketing;
+        }
+
+        &:nth-child(even) {
+          background: $tag-bg-design;
+          color: $tag-color-design;
+        }
+      }
+
+      .skill-tag {
+        background: #F1F2F4;
+        color: $primary-color;
+      }
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .post-details {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+
+    &__sidebar {
+      order: -1;
+    }
+  }
+}
