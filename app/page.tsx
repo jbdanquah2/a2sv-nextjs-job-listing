@@ -1,8 +1,10 @@
-import PostCard from './component/PostCard/PostCard'
+import PostCard from './components/PostCard/PostCard'
 import { fetchJobs, JobPosting } from './services/jobsService'
 
 export default async function Home() {
+  
   const jobPostings: JobPosting[] = await fetchJobs();
+
   console.log("jobPostings****", jobPostings);
 
   return (

@@ -11,9 +11,6 @@ type PostCardProps = {
 
 export default function PostCard({ jobPosting }: PostCardProps) {
 
-
-    console.log("jobPosting****", jobPosting);
-
     const logoUrl = jobPosting?.logoUrl || "https://placehold.co/400x400/000000/F00.png";
 
   return (

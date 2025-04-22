@@ -68,9 +68,13 @@ export const getJobPosting = async (id: string): Promise<JobPosting> => {
     }
 
     const result = await response.json();
+
     return result.data;
+
   } catch (error) {
+
     console.error('Error fetching job details:', error);
+    
     throw error;
   }
 }; 

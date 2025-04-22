@@ -1,10 +1,17 @@
 import { getJobPosting } from "@/app/services/jobsService";
 import PostDetails from "./PostDetails";
 
-export const dynamic = "force-dynamic";
+interface PostDetailsPageProps {
+    params: {
+        id: string;
+    };
+}
 
-export default async function PostDetailsPage({ params }: { params: { id: string } }) {
-    const jobPosting = await getJobPosting(params.id);
+export default async function PostDetailsPage({params}: PostDetailsPageProps) {
+
+    const { id } = await params;
+
+    const jobPosting = await getJobPosting(id);
 
     if (!jobPosting) return null;
 

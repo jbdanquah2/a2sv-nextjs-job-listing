@@ -1,7 +1,7 @@
 import React from 'react';
 import './PostDetails.scss';
 import { JobPosting } from '@/app/services/jobsService';
-import TagButton, { TagButtonVariant } from '@/app/component/TagButton/TagButton';
+import TagButton, { TagButtonVariant } from '@/app/components/TagButton/TagButton';
 
 
 const PostDetails: React.FC<JobPosting> = ({
