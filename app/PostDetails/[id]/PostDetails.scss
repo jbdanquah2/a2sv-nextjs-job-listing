@@ -1,21 +1,11 @@
 // Variables
 $primary-color: #2D2D69;
 $secondary-color: #666;
-$border-color: #eee;
+$border-color: #D6DDEB;
 $tag-bg-marketing: #FFF4E5;
 $tag-color-marketing: #FF9B05;
 $tag-bg-design: #E5F5F0;
 $tag-color-design: #0BAB7C;
-
-// Mixins
-@mixin card-shadow {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-@mixin flex-center {
-  display: flex;
-  align-items: center;
-}
 
 .post-details {
   display: grid;
@@ -25,18 +15,32 @@ $tag-color-design: #0BAB7C;
   max-width: 1200px;
   margin: 0 auto;
 
-  &__content {
+  .content-card, .sidebar-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    // border: 1px solid $border-color;
+  }
+
+  .content-card {
     section {
       margin-bottom: 2rem;
-      padding: 1.5rem;
-      background: white;
-      border-radius: 8px;
-      @include card-shadow;
+      padding-bottom: 2rem;
+    //   border-bottom: 1px solid $border-color;
+
+      &:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+      }
 
       h2 {
         color: $primary-color;
         font-size: 1.5rem;
+        font-family: 'Poppins', sans-serif;
         margin-bottom: 1rem;
+        font-weight: 900;
       }
 
       p {
@@ -44,17 +48,24 @@ $tag-color-design: #0BAB7C;
         line-height: 1.6;
       }
     }
-  }
 
-  &__responsibilities {
-    ul {
-      list-style: none;
-      padding: 0;
+    .responsibilities-section, .ideal-candidate-section {
+      ul {
+        list-style: none;
+        padding: 0;
 
+        li {
+          color: $secondary-color;
+          line-height: 1.6;
+          margin-bottom: 0.8rem;
+        }
+      }
+    }
+
+    .responsibilities-section {
       li {
-        @include flex-center;
-        margin-bottom: 0.8rem;
-        color: $secondary-color;
+        display: flex;
+        align-items: center;
 
         .check-icon {
           color: #0BAB7C;
@@ -62,71 +73,74 @@ $tag-color-design: #0BAB7C;
         }
       }
     }
-  }
 
-  &__ideal-candidate {
-    ul {
-      list-style: none;
-      padding: 0;
-
-      li {
-        margin-bottom: 1rem;
-        color: $secondary-color;
-        line-height: 1.6;
+    .when-where-section {
+      .location-info {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
       }
     }
   }
 
-  &__when-where {
-    .location-info {
-      @include flex-center;
-      gap: 0.8rem;
-
-      .location-icon {
-        font-size: 1.2rem;
-      }
-    }
-  }
-
-  &__sidebar {
+  .sidebar-card {
     .about-section, .categories-section, .skills-section {
-      background: white;
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      @include card-shadow;
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid $border-color;
+
+      &:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+      }
 
       h2 {
-        color: $primary-color;
-        font-size: 1.25rem;
-        margin-bottom: 1.2rem;
+        color: #25324B;
+        font-size: 24px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 900;
+        margin-bottom: 1.5rem;
       }
     }
 
     .info-item {
-      @include flex-center;
+      display: flex;
+      align-items: flex-start;
       gap: 1rem;
-      margin-bottom: 1rem;
-      padding: 0.8rem 0;
-      border-bottom: 1px solid $border-color;
+      margin-bottom: 1.25rem;
+      padding-bottom: 1.25rem;
 
       &:last-child {
-        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
       }
 
       .icon {
-        font-size: 1.2rem;
+        flex-shrink: 0;
+        width: 45px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
-      h3 {
-        font-size: 0.9rem;
-        color: $secondary-color;
-        margin-bottom: 0.2rem;
-      }
+      div {
+        flex-grow: 1;
 
-      p {
-        color: $primary-color;
-        font-weight: 500;
+        h3 {
+          font-size: 14px;
+          color: #7C8493;
+          margin: 0 0 4px 0;
+          font-weight: normal;
+        }
+
+        p {
+          color: #25324B;
+          font-weight: 500;
+          font-size: 16px;
+          margin: 0;
+        }
       }
     }
 

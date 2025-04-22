@@ -1,14 +1,16 @@
 import { getJobPosting } from "@/app/services/jobsService";
 import PostDetails from "./PostDetails";
 
-export default async function PostDetailsPage({ params }: { params: { id: string } }) {
-    const jobPosting = await getJobPosting(await (params.id));
+export const dynamic = "force-dynamic";
 
-    console.log("###jobPosting###", jobPosting);
+export default async function PostDetailsPage({ params }: { params: { id: string } }) {
+    const jobPosting = await getJobPosting(params.id);
+
+    if (!jobPosting) return null;
 
     return (
         <div>
             <PostDetails {...jobPosting} />
         </div>
-    )
+    );
 }
