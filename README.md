@@ -64,14 +64,24 @@ The job details page provides comprehensive information about a specific positio
 ```
 job-listing/
 ├── app/              # Next.js app directory
-├── public/           # Static assets
-├── node_modules/     # Dependencies
-├── .next/            # Next.js build output
-├── package.json      # Project dependencies and scripts
+├── components/       # Reusable UI components
+├── features/         # Feature-specific components and logic
+├── lib/             # Utility functions and shared logic
+├── public/          # Static assets
+├── .next/           # Next.js build output
+├── node_modules/    # Dependencies
+├── .git/            # Git repository
+├── .idea/           # IDE configuration
+├── package.json     # Project dependencies and scripts
+├── package-lock.json # Locked dependencies
 ├── tailwind.config.js # Tailwind CSS configuration
+├── tailwind.config.ts # TypeScript Tailwind configuration
 ├── postcss.config.js # PostCSS configuration
-├── tsconfig.json     # TypeScript configuration
-└── next.config.js    # Next.js configuration
+├── tsconfig.json    # TypeScript configuration
+├── next.config.js   # Next.js configuration
+├── next-env.d.ts    # Next.js TypeScript declarations
+├── .eslintrc.json   # ESLint configuration
+└── .gitignore       # Git ignore rules
 ```
 
 ## 🔧 Configuration
