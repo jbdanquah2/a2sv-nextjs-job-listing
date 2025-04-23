@@ -1,5 +1,5 @@
-import PostCard from './components/PostCard/PostCard'
-import { fetchJobs, JobPosting } from './services/jobsService'
+import PostCard from '../components/PostCard/PostCard'
+import { fetchJobs, JobPosting } from '../lib/services/jobPostingsService'
 
 export default async function Home() {
   

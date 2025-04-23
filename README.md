@@ -9,6 +9,16 @@ A modern job listing platform built with Next.js, TypeScript, and Tailwind CSS. 
 - Responsive design
 - Fast and optimized performance with Next.js
 
+## 📸 Screenshots
+
+### Jobs Listing Page
+![Jobs Listing Page](screenshot1.png)
+The main jobs listing page displays available positions with key information such as job title, company, location, and salary range. Users can easily browse through multiple job listings and filter their search based on preferences.
+
+### Job Details Page
+![Job Details Page](screenshot2.png)
+The job details page provides comprehensive information about a specific position, including detailed job description, requirements, company information, and application instructions. This page helps candidates make informed decisions about job applications.
+
 ## 🛠️ Tech Stack
 
 - **Framework:** [Next.js](https://nextjs.org/) 15.3.0

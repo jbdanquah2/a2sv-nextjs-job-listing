@@ -1,4 +1,4 @@
-import { getJobPosting } from "@/app/services/jobsService";
+import { getJobPosting } from "@/lib/services/jobPostingsService";
 import PostDetails from "./PostDetails";
 
 interface PostDetailsPageProps {

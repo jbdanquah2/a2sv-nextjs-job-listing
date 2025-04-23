@@ -1,5 +1,5 @@
 'use client'
-import { JobPosting } from "@/app/services/jobsService";
+import { JobPosting } from "@/lib/services/jobPostingsService";
 import "./PostCard.scss"
 import Image from "next/image"
 import TagButton from "../TagButton/TagButton"

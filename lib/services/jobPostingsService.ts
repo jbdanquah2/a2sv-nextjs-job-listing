@@ -1,5 +1,10 @@
-const PUBLIC_API_URL = process.env.PUBLIC_API_URL;
-console.log("PUBLIC_API_URL", PUBLIC_API_URL);
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
+if (!API_URL) {
+  console.error('NEXT_PUBLIC_API_URL is not defined in environment variables');
+}
+
+console.log("API_URL", API_URL);
 
 export interface JobPosting {
     id: string;
@@ -40,9 +45,12 @@ export interface JobPosting {
   }
 
 export const fetchJobs = async (): Promise<JobPosting[]> => {
+  if (!API_URL) {
+    throw new Error('API URL is not configured. Please check your environment variables.');
+  }
 
   try {
-    const response = await fetch(`${PUBLIC_API_URL}/opportunities/search`);
+    const response = await fetch(`${API_URL}/opportunities/search`);
 
     if (!response.ok) {
       throw new Error('Failed to fetch jobs');
@@ -53,15 +61,18 @@ export const fetchJobs = async (): Promise<JobPosting[]> => {
     return result.data;
 
   } catch (error) {
-
     console.error('Error fetching jobs:', error);
     throw error;
   }
 };
 
 export const getJobPosting = async (id: string): Promise<JobPosting> => {
+  if (!API_URL) {
+    throw new Error('API URL is not configured. Please check your environment variables.');
+  }
+
   try {
-    const response = await fetch(`${PUBLIC_API_URL}/opportunities/${id}`);
+    const response = await fetch(`${API_URL}/opportunities/${id}`);
 
     if (!response.ok) {
       throw new Error('Failed to fetch job details');
@@ -72,9 +83,7 @@ export const getJobPosting = async (id: string): Promise<JobPosting> => {
     return result.data;
 
   } catch (error) {
-
     console.error('Error fetching job details:', error);
-    
     throw error;
   }
 }; 
