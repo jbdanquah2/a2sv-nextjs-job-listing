@@ -48,7 +48,7 @@ export default function UserAvatar() {
           <div className="user-avatar__menu">
             <button
               className="user-avatar__menu-item"
-              onClick={() => signOut({ callbackUrl: '/' })}
+              onClick={() => signOut({ callbackUrl: '/login' })}
             >
               Sign out
             </button>
