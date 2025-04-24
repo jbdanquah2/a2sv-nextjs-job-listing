@@ -1,18 +1,5 @@
-import React from 'react';
-import './loading.scss';
+import Loading from './loading-page';
 
-interface LoadingProps {
-  fullScreen?: boolean;
+export default function LoadingPage() {
+  return <Loading fullScreen message="Loading..."  />;
 }
-
-const Loading: React.FC<LoadingProps> = ({ fullScreen = false }) => {
-  return (
-    <div className={`loading-container ${fullScreen ? 'fullscreen' : ''}`}>
-      <div className="loading">
-        <div className="loading-circle"></div>
-      </div>
-    </div>
-  );
-};
-
-export default Loading; 

@@ -18,6 +18,11 @@ export default async function Home() {
 
   console.log("jobPostings****", jobPostings);
 
+
+  if (jobPostings.length === 0) {
+    return null;
+  }
+
   return (
     <div className="container">
       <div className="header">

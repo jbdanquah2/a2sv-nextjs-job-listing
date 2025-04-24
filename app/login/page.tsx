@@ -3,29 +3,32 @@
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { FcGoogle } from 'react-icons/fc';
+import { useState } from 'react';
+import Loading from '../loading-page';
 import './login.scss';
 
 export default function LoginPage() {
   const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleGoogleSignIn = async () => {
     try {
+      setIsLoading(true);
       const result = await signIn('google', {
         callbackUrl: '/',
         redirect: true,
       });
 
-      if (result?.ok) {
-        router.push('/');
-      }
       
     } catch (error) {
       console.error('Error signing in with Google:', error);
+      setIsLoading(false);
     }
   };
 
   return (
     <div className="login-container">
+      {isLoading && <Loading fullScreen={true} />}
       <div className="login-card">
         <div className="header">
           <div className="title">
@@ -37,9 +40,13 @@ export default function LoginPage() {
         <div className="divider"></div>
 
         <div className="sign-in-section">
-          <button onClick={handleGoogleSignIn} className="google-button">
+          <button 
+            onClick={handleGoogleSignIn} 
+            className="google-button"
+            disabled={isLoading}
+          >
             <FcGoogle className="google-icon" />
-            Continue with Google
+            {isLoading ? 'Signing in...' : 'Continue with Google'}
           </button>
         </div>
 
