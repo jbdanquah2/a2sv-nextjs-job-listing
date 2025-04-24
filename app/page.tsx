@@ -1,7 +1,18 @@
+import { getServerSession } from 'next-auth';
 import PostCard from '../components/PostCard/PostCard'
 import { fetchJobs, JobPosting } from '../lib/services/jobPostingsService'
+import { redirect } from 'next/navigation';
+import { authOptions } from "@/lib/auth"; 
 
 export default async function Home() {
+
+  const session = await getServerSession(authOptions);
+
+  console.log("session###", session);
+
+  if (!session) {
+    redirect('/login');
+  }
   
   const jobPostings: JobPosting[] = await fetchJobs();
 
