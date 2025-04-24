@@ -19,6 +19,10 @@ The main jobs listing page displays available positions with key information suc
 ![Job Details Page](screenshot1.png)
 The job details page provides comprehensive information about a specific position, including detailed job description, requirements, company information, and application instructions. This page helps candidates make informed decisions about job applications.
 
+### Login Page
+![Login Page](screenshot3.png)
+The login page provides a secure and user-friendly interface for users to access their accounts. It features a clean design with email and password authentication fields, along with options for social login and password recovery.
+
 ## 🛠️ Tech Stack
 
 - **Framework:** [Next.js](https://nextjs.org/) 15.3.0
