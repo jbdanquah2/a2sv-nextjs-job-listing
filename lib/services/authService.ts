@@ -14,6 +14,7 @@ export interface SignupCredentials {
   email: string;
   password: string;
   confirmPassword: string;
+  role: string;
 }
 
 export interface UserData {
@@ -130,4 +131,21 @@ export const verifyOTP = async (request: OTPVerificationRequest): Promise<AuthRe
     console.error('Error during OTP verification:', error);
     throw error;
   }
+};
+
+export const handleOTPAuthResponse = async (response: AuthResponse) => {
+  if (!response.success || !response.data) {
+    throw new Error(response.message || 'OTP verification failed');
+  }
+
+  // Return user data in the format NextAuth expects
+  return {
+    id: response.data.id,
+    name: response.data.name,
+    email: response.data.email,
+    image: response.data.profilePicUrl || "https://fakeimg.pl/400x400/d97e7e/3d4070?text=avatar&font=noto-serif",
+    role: response.data.role,
+    accessToken: response.data.accessToken,
+    refreshToken: response.data.refreshToken,
+  };
 }; 

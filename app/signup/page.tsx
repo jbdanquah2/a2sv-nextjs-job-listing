@@ -16,7 +16,8 @@ export default function SignUpPage() {
     name: '',
     email: '',
     password: '',
-    confirmPassword: ''
+    confirmPassword: '',
+    role: 'user'
   });
   const [otp, setOtp] = useState('');
   const [error, setError] = useState('');
@@ -44,7 +45,8 @@ export default function SignUpPage() {
         name: formData.name,
         email: formData.email,
         password: formData.password,
-        confirmPassword: formData.confirmPassword
+        confirmPassword: formData.confirmPassword,
+        role: formData.role
       });
       
       if (!response.success) {

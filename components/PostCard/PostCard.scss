@@ -9,12 +9,10 @@
     box-sizing: border-box;
 
     @media (max-width: 768px) {
-
         padding: 15px 15px;
-     
     }
-
 }
+
 .post-card {
     background-color: #fefefe;
     padding: 35px 15px;
@@ -24,9 +22,7 @@
     border: 1px solid #D6DDEB;
 
     @media (max-width: 768px) {
-
         padding-bottom: 25px !important;
-     
     }    
     
     .job-title {
@@ -47,14 +43,11 @@
     }
 
     .post-card-content {
-        // gap: 1em;
-
         .job-title {
             font-size: 30px;
             font-weight: 600;
             color: #1A1A1A;
             font-family: 'Poppins', sans-serif;
-    
         }
 
         .job-location {
@@ -88,7 +81,6 @@
         }
 
         .post-card-description {
-    
             cursor: pointer;
         }
 
@@ -134,8 +126,25 @@
             }
         }
     }
-    
-    
+
+    .bookmark-btn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 4px;
+        z-index: 1;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+
+        svg {
+            transition: fill 0.2s ease;
+        }
+    }
 }
 
 // Media Queries for Responsive Design
